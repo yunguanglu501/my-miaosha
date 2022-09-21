@@ -25,6 +25,19 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public int updateStockById(Stock stock) {
-        return 0;
+        Stock db = new Stock();
+        db.setSale(stock.getSale());
+        db.setId(stock.getId());
+        return stockMapper.updateById(db);
+    }
+
+    @Override
+    public int updateStockByOptimistic(Stock stock) {
+        return stockMapper.updateByOptimistic(stock);
+    }
+
+    @Override
+    public Stock getStockByIdForUpdate(int sid) {
+        return stockMapper.selectByPrimaryKeyForUpdate(sid);
     }
 }

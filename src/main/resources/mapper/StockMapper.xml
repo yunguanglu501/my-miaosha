@@ -14,4 +14,22 @@
     <!--@mbg.generated-->
     id, `name`, `count`, sale, version
   </sql>
+
+  <update id="updateByOptimistic">
+    update stock
+    <set>
+      sale = sale + 1,
+      version = version + 1,
+    </set>
+    WHERE id = #{id,jdbcType=INTEGER}
+    AND version = #{version,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByPrimaryKeyForUpdate" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from stock
+    where id = #{id,jdbcType=INTEGER}
+    FOR UPDATE
+  </select>
 </mapper>

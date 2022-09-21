@@ -30,9 +30,9 @@ class MyMiaoshaApplicationTests {
 
     @Test
     void test02() {
-       stringRedisTemplate.opsForValue().set("k12","v12");
-        String k12 = stringRedisTemplate.opsForValue().get("k12");
-        System.out.println("k12 = " + k12);
+       stringRedisTemplate.opsForValue().set("k13","v13");
+        String k13 = stringRedisTemplate.opsForValue().get("k13");
+        System.out.println("k13 = " + k13);
     }
 
 

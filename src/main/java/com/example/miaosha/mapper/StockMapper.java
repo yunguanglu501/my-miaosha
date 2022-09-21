@@ -10,4 +10,7 @@ import com.example.miaosha.entity.Stock;
  */
 
 public interface StockMapper extends BaseMapper<Stock> {
+    int updateByOptimistic(Stock stock);
+
+    Stock selectByPrimaryKeyForUpdate(int sid);
 }
